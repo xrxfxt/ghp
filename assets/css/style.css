@@ -51,7 +51,7 @@ img.emoji, img.ico  { vertical-align: middle; width: 1.3rem; height: 1.3rem; pad
 input.task-list-item-checkbox  { margin-right: 0.5rem}
 
 div.gallery {display: flex; flex-wrap: wrap; column-gap: 0.1rem; row-gap: 0.1rem; justify-content: center}
-div.gallery>img {max-width: 55rem; }
+div.gallery>img {max-width: 95%; }
 div.gallery>img:active {max-width: 100%; }
 
 /*
