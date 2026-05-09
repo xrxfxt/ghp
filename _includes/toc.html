@@ -1,0 +1,38 @@
+<style>
+  body { display: flex; }
+  nav#toc {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    width: 200px;
+    flex-shrink: 0;
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+  nav#toc ul { list-style: none; padding: 0; margin: 0; }
+  nav#toc a { text-decoration: none; display: block; padding: 2px 0; }
+  nav#toc a:hover { text-decoration: underline; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const headers = document.querySelectorAll('h1, h2, h3');
+    if (!headers.length) return;
+
+    const toc = document.createElement('nav');
+    toc.id = 'toc';
+    const ul = document.createElement('ul');
+
+    headers.forEach(h => {
+      if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      const li = document.createElement('li');
+      li.style.paddingLeft = `${(parseInt(h.tagName[1]) - 1)}rem`;
+      li.innerHTML = `<a href="#${h.id}">${h.textContent}</a>`;
+      ul.appendChild(li);
+    });
+
+    toc.appendChild(ul);
+    document.body.prepend(toc);
+  });
+</script>
